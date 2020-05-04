@@ -10,6 +10,7 @@
 \usepackage{tikz}
 \usepackage[ngerman]{babel}
     \usetikzlibrary{arrows,topaths}
+    \usetikzlibrary{bending}
 \title{Elektrotechnik 1 - Praktikum 1}
 \subtitle{Spannungs - und Stromquellen im belasteten Brückenschaltung}
 \author{Karl Döring \and Florian Tietjen \and Eric Antosch}
@@ -216,13 +217,25 @@ Analog zur gemachten Überlegung in (\ref{eq:pmax}) ist auch hier das Maximum de
 \begin{figure}
   \begin{center}
 \includegraphics[scale=0.5]{pw_volt_rsjp2.pdf}
-\caption{Der Schnittpunkt der beiden Were}
+\caption{Der Schnittpunkt der beiden Werte}
   \end{center}
 \end{figure}
 
 \section{Aufgabe 3}
+\begin{circuitikz}[european]
+  \tikzstyle{obj}  = [circle, minimum width=5pt, fill, inner sep=0pt]
+  \draw (0,0) to[isource, i<=$I_1$, l=$I_q$] (0,5) -- (5,5) to[R=$R_3$, v=$U_3$] (7,5) -- (8,5) to[R=$R_4$, v=$U_4$] (8, 3) to[V=$U_{q1}$] (8,0) -- (0,0);
+  \draw (2,0) to[short, *-] (2,1) to[R=$R_1$,v<=$U_1$] (2,4) to[short, -*] (2,5);
+  \draw (4,0) to[V<=$U_{q0}$, *-] (4,2) to[R=$R_2$,v=$U_2$, -*] (4,5);
+  \node[obj, label=above:A] (xa) at (7,5) {};
+  \node[obj, label=below:B] (xa) at (7,0) {};
+  \draw[-latex] (7, 3.5) -- (7, 1.5);
+\end{circuitikz}
 
 \subsection{Vorbereitung}
+\begin{abstract}
+  \textbf{Aufgabe 1.3.1} 
+\end{abstract}
 \subsection{Simulation}
 
 \section{Anhang}
